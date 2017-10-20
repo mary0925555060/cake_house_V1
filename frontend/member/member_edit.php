@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="page">
-		<?php require_once("../../template/header.php"); ?>
+		<?php require_once("../../template/header2.php"); ?>
 		<div id="body" class="contact">
 			<div class="header">
 				<div>
@@ -21,7 +21,7 @@
 
 			</div>
 			<div class="footer">
-				<ul class="Category">
+				<ul class="name">
 					<li><a href="member_edit.php">會員資料修改</a></li>
 					<li><a href="my_cart.php">我的購物車</a></li>
 					<li><a href="my_orders.php">我的訂單</a></li>
@@ -39,7 +39,7 @@
 								<tr>
 									<th>姓名：</th>
 									<td>
-										<input type="text" name="Name" value="Andy">
+										<input type="text" name="name" value="Andy">
 										<div class="help-block with-errors"></div>
 									</td>
 								</tr>

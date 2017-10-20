@@ -32,7 +32,7 @@ if(isset($_GET['Existed']) && $_GET['Existed'] == "true"){
 				<ol class="breadcrumb">
 				  <li><a href="../index.php"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 				  <li><a href="#">蛋糕</a></li>
-				  <li class="active"><?php echo $product['Name']; ?></li>
+				  <li class="active"><?php echo $product['name']; ?></li>
 				</ol>
 				<div id="Product">
 
@@ -40,7 +40,7 @@ if(isset($_GET['Existed']) && $_GET['Existed'] == "true"){
 						<img src="../uploads/product/<?php echo $product['Picture']; ?>" alt="">
 					</div>
 					<div class="content-right">
-						<h2><?php echo $product['Name']; ?></h2>
+						<h2><?php echo $product['name']; ?></h2>
 						<form class="" action="add_cart.php" method="post">
 							<table id="ProductTable">
 								<tr>

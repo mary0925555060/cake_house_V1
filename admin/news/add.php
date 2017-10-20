@@ -4,7 +4,7 @@ if (isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
   $sql= "INSERT INTO news(publishedDate, title, content, createdDate) VALUES ( :publishedDate, :title, :content, :createdDate)";
     $sth = $db ->prepare($sql);
     $sth ->bindParam(":publishedDate", $_POST['publishedDate'], PDO::PARAM_STR);
-    $sth ->bindParam("title", $_POST['title'], PDO::PARAM_STR);
+    $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
     $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
     $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
     $sth -> execute();
