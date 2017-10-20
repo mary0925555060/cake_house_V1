@@ -5,11 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cake House-會員申請</title>
-	<?php require_once("../../template/files2.php"); ?>
+	<?php require_once("../template/files2.php"); ?>
 </head>
 <body>
 	<div id="page">
-		<?php require_once("../../template/header2.php"); ?>
+		<?php require_once("../template/header2.php"); ?>
 		<div id="body" class="contact">
 			<div class="header">
 				<div>
@@ -24,13 +24,13 @@
 					<h1>會員登入</h1>
 					<div class="row">
 	          <div class="col-md-12">
-					<form action="#" method="post" data-toggle="validator">
+					<form action="login.php" method="post" data-toggle="validator">
 						<div class="form-group">
 							<div class="col-sm-2">
 								<label for="Account" class="control-label">帳號</label>
 							</div>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="Account" name="Account"  style="margin-bottom:10px;" data-error="請輸入帳號" required>
+								<input type="email" class="form-control" id="Account" name="account"  style="margin-bottom:10px;" data-error="請輸入帳號" required>
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
@@ -39,7 +39,7 @@
 								<label for="Password" class="control-label">密碼</label>
 							</div>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" id="Password" name="Password" data-minlength="6" data-error="請輸入密碼" required>
+								<input type="password" class="form-control" id="Password" name="password" data-minlength="6" data-error="請輸入密碼" required>
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
@@ -62,7 +62,7 @@
 
 			</div>
 		</div>
-		<?php require_once("../../template/footer.php"); ?>
+		<?php require_once("../template/footer.php"); ?>
 	</div>
 </body>
 </html>

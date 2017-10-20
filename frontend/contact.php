@@ -29,7 +29,7 @@
 				<div class="contact">
 					<h1>INQUIRY FORM</h1>
 					<form action="../index.php">
-						<input type="text" name="name" value="name" onblur="this.value=!this.value?'name':this.value;" onfocus="this.select()" onclick="this.value='';">
+						<input type="text" name="Name" value="Name" onblur="this.value=!this.value?'Name':this.value;" onfocus="this.select()" onclick="this.value='';">
 						<input type="text" name="Email" value="Email" onblur="this.value=!this.value?'Email':this.value;" onfocus="this.select()" onclick="this.value='';">
 						<input type="text" name="Subject" value="Subject" onblur="this.value=!this.value?'Subject':this.value;" onfocus="this.select()" onclick="this.value='';">
 						<textarea name="meassage" cols="50" rows="7">Share your thoughts</textarea>

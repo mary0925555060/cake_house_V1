@@ -22,7 +22,7 @@
 
 			</div>
 			<div class="footer">
-				<ul class="name">
+				<ul class="Category">
 					<li><a href="member_edit.php">會員資料修改</a></li>
 					<li><a href="my_cart.php">我的購物車</a></li>
 					<li><a href="my_orders.php">我的訂單</a></li>
@@ -72,23 +72,23 @@
 		              <input type="hidden" class="form-control" name="MM_insert" value="AddForm">
 		              <div class="form-group">
 		                <div class="col-sm-2">
-		                  <label for="Ordername" class="control-label">訂購人</label>
+		                  <label for="OrderName" class="control-label">訂購人</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="Ordername" name="Ordername" value="" >
+		                  <input type="text" class="form-control" id="OrderName" name="OrderName" value="" >
 		                </div>
 		              </div>
 									<div class="form-group">
 		                <div class="col-sm-2">
-		                  <label for="name" class="control-label">收件者</label>
+		                  <label for="Name" class="control-label">收件者</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="name" name="name" value="">
+		                  <input type="text" class="form-control" id="Name" name="Name" value="">
 		                </div>
 		              </div>
 									<div class="form-group">
 		                <div class="col-sm-2">
-		                  <label for="name" class="control-label">聯絡電話</label>
+		                  <label for="Name" class="control-label">聯絡電話</label>
 		                </div>
 		                <div class="col-sm-10">
 		                  <input type="text" class="form-control" id="Phone" name="Phone" value="">

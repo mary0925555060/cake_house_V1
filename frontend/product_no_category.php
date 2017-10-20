@@ -2,9 +2,8 @@
 require_once("../connection/database.php");
 $sth = $db->query("SELECT * FROM product_category");
 $categories = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-$sth2 = $db->query("SELECT * FROM product ");
-$product = $sth2->fetchAll(PDO::FETCH_ASSOC);
+$sth2 = $db->query("SELECT * FROM product ORDER BY createdDate DESC");
+$products = $sth2->fetchAll(PDO::FETCH_ASSOC);
  ?>
 <!doctype html>
 <!-- Website template by freewebsitetemplates.com -->
@@ -30,20 +29,20 @@ $product = $sth2->fetchAll(PDO::FETCH_ASSOC);
 				  <li><a href="../index.php"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 				  <li class="active"><a href="#">蛋糕</a></li>
 				</ol>
-				<ul class="name">
+				<ul class="Category">
 
-          <li><a href="product_name.php">全部商品</a></li>
-					<?php foreach ($categories as $row) { ?>
-					<li><a href="product_name.php?product_categoryID=<?php echo $row['product_categoryID']?>"><?php echo $row['category']; ?></a></li>
+					<li><a href="product_no_category.php">全部商品</a></li>
+					<?php foreach($categories as $row){ ?>
+					<li><a href="product_category.php?product_categoryID=<?php echo $row['product_categoryID']; ?>"><?php echo $row['category']; ?></a></li>
 					<?php } ?>
 				</ul>
 				<ul id="Products">
-					<?php foreach ($product as $row){ ?>
+					<?php foreach($products as $product){ ?>
 					<li>
-						<a href="product_content.php?productID=<?php echo $row["productID"];?>"><img src="../uploads/products/<?php echo $row['picture']; ?>" width="200" height="150" alt=""></a>
-						<a href="product_content.php?productID=<?php echo $row["productID"];?>"><h2><?php echo $row["name"]; ?></h2></a>
+						<a href="product_content.php?productID=<?php echo $product['productID'];?>"><img src="../uploads/products/<?php echo $product['picture'];?>" width="200" height="150" alt=""></a>
+						<a href="product_content.php?productID=<?php echo $product['productID'];?>"><h2><?php echo $product['name'];?></h2></a>
 					</li>
-				<?php } ?>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

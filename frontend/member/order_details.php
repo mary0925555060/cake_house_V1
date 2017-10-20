@@ -21,7 +21,7 @@
 
 			</div>
 			<div class="footer">
-				<ul class="name">
+				<ul class="Category">
 					<li><a href="member_edit.php">會員資料修改</a></li>
 					<li><a href="my_cart.php">我的購物車</a></li>
 					<li><a href="my_orders.php">我的訂單</a></li>

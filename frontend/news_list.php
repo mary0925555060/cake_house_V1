@@ -1,6 +1,6 @@
 <?php
 require_once("../connection/database.php");
-$sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");
+$sth = $db->query("SELECT * FROM news ORDER BY published_date DESC");
 $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
 $totalRows = count($all_news);
  ?>
@@ -19,7 +19,7 @@ $totalRows = count($all_news);
 		<div id="body">
 			<div class="header">
 				<div>
-					<h1>最新消息</h1>
+					<h1>Blog</h1>
 				</div>
 			</div>
 			<div class="blog">
@@ -27,16 +27,15 @@ $totalRows = count($all_news);
 					<ul>
 						<?php foreach($all_news as $row){ ?>
 						<li>
-							<img src="../images/new-chills.png" alt="">
+
 							<div>
 								<h1><?php echo $row['title']; ?></h1>
-								<span><?php echo $row['publishedDate']; ?></span>
-								<p><?php echo mb_substr($row['content'],0,50,"utf-8")."..."; ?></p>
-								<a href="news.php?newsID=<?php echo $row['newsID'];?>" class="more">Read More</a>
+								<span><?php echo $row['published_date']; ?></span>
+								<p><?php echo mb_substr($row['content'],0,50,'utf-8'); ?></p>
+								<a href="news.php?newsID=<?php echo $row['newsID']; ?>" class="more">Read More</a>
 							</div>
 						</li>
-					<?php } ?>
-
+						<?php } ?>
 						<li>
 							<img src="../images/berries.png" alt="">
 							<div>
@@ -47,7 +46,7 @@ $totalRows = count($all_news);
 							</div>
 						</li>
 					</ul>
-					<a href="news_list.php" class="load">Load More</a>
+					<a href="blog.php" class="load">Load More</a>
 				</div>
 				<div class="sidebar">
 					<h1>Recent Posts</h1>

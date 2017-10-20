@@ -31,7 +31,7 @@
         </ul>
       </li>
       <li>
-        <a href="product_no_name.php">產品介紹</a>
+        <a href="product_no_category.php">產品介紹</a>
       </li>
       <li class="menu">
         <a href="news_list.php">最新消息</a>
