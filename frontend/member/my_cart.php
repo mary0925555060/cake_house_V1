@@ -32,6 +32,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "QuantityEdit"){
 					<li><a href="member_edit.php">會員資料修改</a></li>
 					<li><a href="my_cart.php">我的購物車</a></li>
 					<li><a href="my_orders.php">我的訂單</a></li>
+					<li><a href="my_All_delete.php">清除所有商品</a></li>
 				</ul>
 				<div id="OrderForm">
 					<h1>我的購物車</h1>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once("../../connection/database.php");
+$sth = $db->query("SELECT * FROM member WHERE account ='".$_SESSION['account']."'");
+$member = $sth->fetch(PDO::FETCH_ASSOC);
+?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
 <html>
@@ -8,7 +14,6 @@
 	<?php require_once("../template/files2.php"); ?>
 	<link rel="stylesheet" href="../assets/css/cart.css">
 </head>
-
 <body>
 	<div id="page">
 		<?php require_once("../template/header2.php"); ?>
@@ -41,26 +46,28 @@
             		</tr>
             	</thead>
               <tbody>
-
+             <?php for($i = 0 ; $i < count($_SESSION['Cart']); $i++){  //有商品在購物車時顯示?>
                 <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
 									<td data-title="商品圖片">
-											<a href=""><img src="../uploads/product/cheese.jpg" alt="" width="200" height="150"></a>
+											<a href=""><img src="../uploads/product/<?php echo $_SESSION['Cart'][$i]['picture']; ?>" alt="" width="200" height="150"></a>
 									</td>
 									<td class="cart_description" data-title="商品名稱">
-											<h4>起士蛋糕</h4>
+											<h4><a href=""><?php echo $_SESSION['Cart'][$i]['name']; ?></h4>
 									</td>
-                  <td data-title="單價">$NT 150</td>
-                  <td data-title="數量">1</td>
-									<td data-title="小計">$NT 150</td>
+                  <td data-title="單價">$NT <?php echo $_SESSION['Cart'][$i]['price']; ?></td>
+                  <td data-title="數量"><?php echo $_SESSION['Cart'][$i]['quantity']; ?></td>
+									<td data-title="小計">$NT <?php $subtotal = $_SESSION['Cart'][$i]['price'] * $_SESSION['Cart'][$i]['quantity']; echo $subtotal; ?></td>
                 </tr>
-
+								<?php
+									$totalPrice += $subtotal;
+							} //for結尾 ?>
 								<tr>
 									<td colspan="4" style="text-align: right;font-weight:bold;">運費</td>
-									<td style="text-align: left;font-weight:bold;">$NT 120</td>
+									<td style="text-align: left;font-weight:bold;">$NT <?php if($totalPrice > 1000) echo "0"; else echo "150"; ?></td>
 								</tr>
 								<tr>
 									<td colspan="4" style="text-align: right;font-weight:bold;">總金額</td>
-									<td style="text-align: left;font-weight:bold;">$NT 270</td>
+									<td style="text-align: left;font-weight:bold;">$NT <?php echo $totalPrice; ?></td>
 								</tr>
               </tbody>
             </table>
@@ -75,7 +82,7 @@
 		                  <label for="OrderName" class="control-label">訂購人</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="OrderName" name="OrderName" value="" >
+		                  <input type="text" class="form-control" id="OrderName" name="OrderName" value="<?php echo $member['name']; ?>" >
 		                </div>
 		              </div>
 									<div class="form-group">
@@ -83,7 +90,7 @@
 		                  <label for="Name" class="control-label">收件者</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="Name" name="Name" value="">
+		                  <input type="text" class="form-control" id="name" name="name" value="<?php echo $member['name']; ?>">
 		                </div>
 		              </div>
 									<div class="form-group">
@@ -91,7 +98,7 @@
 		                  <label for="Name" class="control-label">聯絡電話</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="Phone" name="Phone" value="">
+		                  <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $member['phone']; ?>">
 		                </div>
 		              </div>
 		              <div class="form-group">
@@ -99,7 +106,7 @@
 		                  <label for="Mobile" class="control-label">行動電話</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="Mobile" name="Mobile" value="">
+		                  <input type="text" class="form-control" id="Mobile" name="Mobile" value="<?php echo $member['name']; ?>">
 											<input type="hidden" name="OrderNo" value="">
 											<input type="hidden" name="OrderDate" value="">
 											<input type="hidden" name="MemberID" value="">
@@ -113,7 +120,7 @@
 		                  <label for="Email" class="control-label">E-mail</label>
 		                </div>
 		                <div class="col-sm-10">
-		                  <input type="text" class="form-control" id="Email" name="Email" value="">
+		                  <input type="text" class="form-control" id="email" name="email" value="<?php echo $member['email']; ?>">
 		                </div>
 		              </div>
 		              <div class="form-group">

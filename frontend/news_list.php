@@ -1,6 +1,6 @@
 <?php
 require_once("../connection/database.php");
-$sth = $db->query("SELECT * FROM news ORDER BY published_date DESC");
+$sth = $db->query("SELECT * FROM news ORDER BY publishedDate DESC");
 $all_news = $sth->fetchAll(PDO::FETCH_ASSOC);
 $totalRows = count($all_news);
  ?>
