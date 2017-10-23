@@ -30,7 +30,7 @@ $totalRows = count($all_news);
 
 							<div>
 								<h1><?php echo $row['title']; ?></h1>
-								<span><?php echo $row['published_date']; ?></span>
+								<span><?php echo $row['publishedDate']; ?></span>
 								<p><?php echo mb_substr($row['content'],0,50,'utf-8'); ?></p>
 								<a href="news.php?newsID=<?php echo $row['newsID']; ?>" class="more">Read More</a>
 							</div>
