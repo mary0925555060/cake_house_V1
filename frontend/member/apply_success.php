@@ -7,6 +7,20 @@ $sth ->bindParam(":password", $_POST['password'], PDO::PARAM_STR);
 $sth ->bindParam(":phone", $_POST['phone'], PDO::PARAM_STR);
 $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
 $sth -> execute();
+//寄送會員信件
+      $to      = "y0925555060@gmail.com";
+
+  		$header  = 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+  		$header .= "From: kemieteach@gmail.com";
+
+  		$subject = "[Cake House] 會員註冊信";
+  		$body    = "歡迎您加入Cake House 會員。<br><br>";
+  		$body   .= "內容如下<br>";
+  		$body   .= "您可至<a href='http://120.124.165.116/c/cake_house_V1/frontend/member/member_login.php'>會員登入頁</a>登入。<br>";
+
+
+  		mail($to, $subject, $body, $header);
+
  ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
@@ -32,6 +46,7 @@ $sth -> execute();
 			<div class="footer">
 				<div id="MemberForm">
 					<h2>申請會員成功!</h2>
+          <p>會員確認信已寄至您的帳號信箱，請檢查信件並確認。</p>
 					<p>
 						您已成功加入會員，請至 <a href="member_login.php">登入頁</a>，登入您的帳號，方可進行購物。
 					</p>
